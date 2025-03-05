@@ -1,0 +1,33 @@
+#-----------log rotation rules-------------------
+sudo chmod 755 /home/ubuntu/finance/stock-analyser-deploy/develop/logs
+sudo chmod 755 /home/ubuntu/finance/stock-analyser-deploy/prod/logs
+sudo vim /etc/logrotate.d/stock-analyser-dev-logs
+"""
+/home/ubuntu/finance/stock-analyser-deploy/*/logs/*.log {
+    rotate 7
+    size 100M
+    compress
+    missingok
+    notifempty
+    su ubuntu ubuntu
+}
+"""
+
+
+
+
+#-----------------------to get logs from dokcer compose command ---------------------------
+sudo apt install moreutils
+
+
+
+
+
+#--------------run docker compose and keep its logs ----------------------------------------
+docker compose up 2>&1 | ts '[%Y-%m-%d %H:%M:%S]' >> "logs/logs_$(date '+%Y-%m-%d_%H-%M').log"
+
+
+
+
+#----------------get instence id in order to turn it off ------------------
+sudo apt install amazon-ec2-utils

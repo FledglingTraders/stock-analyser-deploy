@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  dev-stock-analyser:
+    image: ${DEV_ECR_REPO}:${IMAGE_VERSION}
+    container_name: stock-analyser-dev-container
+    volumes:
+      - ${DEV_CONFIG_PATH}:/app/config/config.json
+      - ${AWS_CREDANTIALS_PATH}:/root/.aws
