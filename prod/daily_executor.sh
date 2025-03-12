@@ -6,4 +6,4 @@ docker compose -f ~/finance/stock-analyser-deploy/prod/docker-compose.yml up 2>&
 # Get the instance ID dynamically
 INSTANCE_ID=$(ec2-metadata -i | awk '{print $2}')
 
-aws ec2 stop-instances --instance-ids $INSTANCE_ID
+# aws ec2 stop-instances --instance-ids $INSTANCE_ID
