@@ -7,3 +7,4 @@ services:
     volumes:
       - ${PROD_CONFIG_PATH}:/app/config/config.json
       - ${AWS_CREDANTIALS_PATH}:/root/.aws
+    pull_policy: always
