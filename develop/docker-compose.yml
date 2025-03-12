@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   dev-stock-analyser:
-    image: ${DEV_ECR_REPO}:${IMAGE_VERSION}
+    image: 108782078484.dkr.ecr.eu-north-1.amazonaws.com/stock-analyser:0.0.1-alpha-20250312-259858e
     container_name: stock-analyser-dev-container
     volumes:
       - ${DEV_CONFIG_PATH}:/app/config/config.json
